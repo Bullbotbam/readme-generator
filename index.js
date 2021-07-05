@@ -5,60 +5,58 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const { resolve } = require("path");
 
 // TODO: Create an array of questions for user
-const questions = () => {
-  return inquirer.prompt([
-    {
-      type: "input",
-      name: "title",
-      message: "What is the name of this project?",
-    },
-    {
-      type: "input",
-      name: "userName",
-      message: "What is your name?",
-    },
-    {
-      type: "input",
-      name: "email",
-      message: "What is your email address?",
-    },
-    {
-      type: "confirm",
-      name: "tableOfContent",
-      message: "Please enter a table of content",
-    },
-    {
-      type: "input",
-      name: "installation",
-      message: "How do you install this project?",
-    },
-    {
-      type: "input",
-      name: "purpose",
-      message: "What is the purpose of this project?",
-    },
-    {
-      type: "list",
-      name: "license",
-      message: "What licenses are required for this project?",
-      choices: ["Apache", "GNU", "MIT", "Open Data Commons"],
-    },
-    {
-      type: "input",
-      name: "contributing",
-      message: "Who aassisted or contributed to this project?",
-    },
-    {
-      type: "confirm",
-      name: "testing",
-      message: "Are tests included for this project?",
-    },
-    {
-      name: "link",
-      message: "What is the link for this project?",
-    },
-  ]);
-};
+const questions = [
+  {
+    type: "input",
+    name: "title",
+    message: "What is the name of this project?",
+  },
+  {
+    type: "input",
+    name: "userName",
+    message: "What is your name?",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
+  },
+  {
+    type: "confirm",
+    name: "tableOfContent",
+    message: "Please enter a table of content",
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "How do you install this project?",
+  },
+  {
+    type: "input",
+    name: "purpose",
+    message: "What is the purpose of this project?",
+  },
+  {
+    type: "list",
+    name: "license",
+    message: "What licenses are required for this project?",
+    choices: ["Apache", "GNU", "MIT", "Open Data Commons"],
+  },
+  {
+    type: "input",
+    name: "contributing",
+    message: "Who aassisted or contributed to this project?",
+  },
+  {
+    type: "confirm",
+    name: "testing",
+    message: "Are tests included for this project?",
+  },
+  {
+    name: "link",
+    message: "What is the link for this project?",
+  },
+];
 const writeFile = (data) => {
   return new Promise((resolve, reject) => {
     // TODO: Create a function to write README file
@@ -75,7 +73,25 @@ const writeFile = (data) => {
   });
 };
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  console.log("works");
+  inquirer
+    .prompt(
+      /* Pass your questions in here */
+      questions
+    )
+    .then((generateMarkdown) => {
+      // Use user feedback for... whatever!!
+      return writeFile(generateMarkdown);
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else went wrong
+      }
+    });
+}
 
 // Function call to initialize app
 init();
