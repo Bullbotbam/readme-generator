@@ -80,9 +80,9 @@ function init() {
       /* Pass your questions in here */
       questions
     )
-    .then((generateMarkdown) => {
+    .then((readmeMarkdown) => {
       // Use user feedback for... whatever!!
-      return writeFile(generateMarkdown);
+      return writeFile("README.md", readmeMarkdown(data));
     })
     .catch((error) => {
       if (error.isTtyError) {
