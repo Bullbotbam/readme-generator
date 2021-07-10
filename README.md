@@ -18,9 +18,11 @@
    This is a program that allows one time to devote more effort to working on important projects.  This generator gives you a way to quickly and easily generate a README file from a command-line application. 
   ## Installation
    To use this app you must install Node.js [Node.js](https://nodejs.org/en/).  Once you have Node.js installed, then install Node Package Manager(npm).
-   ```
-    npm i npm
-    ```
+
+```
+ npm i npm
+
+```
 
 ## Purpose
 
@@ -46,5 +48,5 @@ None at this time
 
 ## Links
 
-  <br />
-  <br />
+<br />
+<br />
