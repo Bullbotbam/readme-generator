@@ -3,6 +3,30 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 const { resolve } = require("path");
+const path = require("path");
+
+// let getUserRepos = function (user) {
+//   // format the github api url
+//   const apiUrl = "https://api.github.com/users/" + user + "/repos";
+
+//   // make a get request to url
+//   fetch(apiUrl)
+//     .then(function (response) {
+//       // request was successful
+//       if (response.ok) {
+//         console.log(response);
+//         response.json().then(function (data) {
+//           console.log(data);
+//           displayRepos(data, user);
+//         });
+//       } else {
+//         alert("Error: " + response.statusText);
+//       }
+//     })
+//     .catch(function (error) {
+//       alert("Unable to connect to GitHub");
+//     });
+// };
 
 // TODO: Create an array of questions for user
 const questions = [
@@ -57,19 +81,23 @@ const questions = [
     message: "What is the link for this project?",
   },
 ];
-const writeFile = (data) => {
+const writeFile = (fileContent) => {
   return new Promise((resolve, reject) => {
     // TODO: Create a function to write README file
-    fs.writeToFile("./dist/README.md", data, (err) => {
-      if (err) {
-        reject(err);
-        return;
+    fs.writeFileSync(
+      "./dist/README.md",
+      generateMarkdown({ fileContent }),
+      (err) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        resolve({
+          ok: true,
+          message: "file created",
+        });
       }
-      resolve({
-        ok: true,
-        message: "file created",
-      });
-    });
+    );
   });
 };
 // TODO: Create a function to initialize app
@@ -81,8 +109,15 @@ function init() {
       questions
     )
     .then((readmeMarkdown) => {
+      console.log("ths is happening");
+      writeFile(readmeMarkdown);
       // Use user feedback for... whatever!!
-      return writeFile("README.md", readmeMarkdown(data));
+      // return writeFile("./dist/README.md", readmeMarkdown(fileContent));
+      // return fs.writeFileSync(
+      //   path.join(process.cwd(), "README.md"),
+      //   // generateMarkdown({ ...responses })
+      //   readmeMarkdown
+      // );
     })
     .catch((error) => {
       if (error.isTtyError) {
