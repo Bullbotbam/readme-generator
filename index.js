@@ -46,6 +46,11 @@ const questions = [
     message: "What is your email address?",
   },
   {
+    type: "input",
+    name: "description",
+    message: "Please describe this project.",
+  },
+  {
     type: "confirm",
     name: "tableOfContent",
     message: "Please enter a table of content",
@@ -53,7 +58,7 @@ const questions = [
   {
     type: "input",
     name: "installation",
-    message: "How do you install this project?",
+    message: "How is this project installed?",
   },
   {
     type: "input",
@@ -64,12 +69,12 @@ const questions = [
     type: "list",
     name: "license",
     message: "What licenses are required for this project?",
-    choices: ["MIT", "Apache", "GNU", "Open Data Commons, None"],
+    choices: ["None", "MIT", "Apache", "GNU", "Open Data Commons"],
   },
   {
     type: "input",
     name: "contributing",
-    message: "Who aassisted or contributed to this project?",
+    message: "Who assisted or contributed to this project?",
   },
   {
     type: "input",
@@ -86,23 +91,19 @@ const questions = [
     message: "What is the link for this project?",
   },
 ];
-const writeFile = (fileContent) => {
+const writeFile = (response) => {
   return new Promise((resolve, reject) => {
     // TODO: Create a function to write README file
-    fs.writeFileSync(
-      "./dist/README.md",
-      generateMarkdown({ fileContent }),
-      (err) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve({
-          ok: true,
-          message: "file created",
-        });
+    fs.writeFileSync("./dist/README.md", generateMarkdown(response), (err) => {
+      if (err) {
+        reject(err);
+        return;
       }
-    );
+      resolve({
+        ok: true,
+        message: "file created",
+      });
+    });
   });
 };
 // TODO: Create a function to initialize app
@@ -113,9 +114,9 @@ function init() {
       /* Pass your questions in here */
       questions
     )
-    .then((readmeMarkdown) => {
+    .then((generateMarkdown) => {
       console.log("ths is happening");
-      writeFile(readmeMarkdown);
+      writeFile(generateMarkdown);
     })
     .catch((error) => {
       if (error.isTtyError) {
