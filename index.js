@@ -2,8 +2,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
-const { resolve } = require("path");
-const path = require("path");
+// const { resolve } = require("path");
+// const path = require("path");
 
 // let getUserRepos = function (user) {
 //   // format the github api url
@@ -116,13 +116,6 @@ function init() {
     .then((readmeMarkdown) => {
       console.log("ths is happening");
       writeFile(readmeMarkdown);
-      // Use user feedback for... whatever!!
-      // return writeFile("./dist/README.md", readmeMarkdown(fileContent));
-      // return fs.writeFileSync(
-      //   path.join(process.cwd(), "README.md"),
-      //   // generateMarkdown({ ...responses })
-      //   readmeMarkdown
-      // );
     })
     .catch((error) => {
       if (error.isTtyError) {
