@@ -1,5 +1,6 @@
 🏅
-![badge](https://img.shields.io/badge/license-${data.license})
+[![NPM Version](https://img.shields.io/npm/v/npm.svg?style=flat)]()
+[![Badges & Stuff](https://img.shields.io/badge/shields.io-ok-green.svg?style=flat)](http://shields.io/)
 🏅<br />
 
   <h1 align="center">The "README.md" Generator</h1>
@@ -30,9 +31,9 @@ This app is intended to make creating a README.md effortless.
 
 ## License
 
-![badge](https://img.shields.io/badge/license--tertiary)
+![Not Licensed](https://img.shields.io/badge/license--tertiary)
 <br />
-This application is covered by the ${data.license} license.
+This application is not covered by any license.
 
 ## Contributing
 
