@@ -27,6 +27,7 @@ function generateMarkdown(answers) {
   - [Purpose](#purpose)
   - [License](#license)
   - [Contributing](#contributing)
+  - [Issues](#issues)
   - [Tests](#tests)
   - [Links](#links)
   ## Installation
@@ -39,6 +40,8 @@ function generateMarkdown(answers) {
   This application is covered by the ${answers.license} license. 
   ## Contributing
    ${answers.contributing}
+  ## Issues
+ ${answers.issues}
   ## Testing
  ${answers.testing}
   ## Links

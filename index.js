@@ -72,6 +72,11 @@ const questions = [
     message: "Who aassisted or contributed to this project?",
   },
   {
+    type: "input",
+    name: "issues",
+    message: "Any noted issues with this project?",
+  },
+  {
     type: "confirm",
     name: "testing",
     message: "Are tests included for this project?",
