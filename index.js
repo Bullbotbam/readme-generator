@@ -64,7 +64,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "What licenses are required for this project?",
-    choices: ["Apache", "GNU", "MIT", "Open Data Commons"],
+    choices: ["MIT", "Apache", "GNU", "Open Data Commons, None"],
   },
   {
     type: "input",
