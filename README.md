@@ -48,7 +48,4 @@ None at this time
 
 ## Links
 
-[Video Demo](https://youtu.be/JXuEjuwBTIc)
-<br />
-<br />
-asset\Untitled\_ Jul 10, 2021 12_49 AM.mp4
+[The README.md Generator app ~ Video Demo](https://youtu.be/JXuEjuwBTIc)
