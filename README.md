@@ -48,7 +48,7 @@ None at this time
 
 ## Links
 
-[Video Demo](./asset/demo_vid.mp4)
+[Video Demo](https://youtu.be/JXuEjuwBTIc)
 <br />
 <br />
 asset\Untitled\_ Jul 10, 2021 12_49 AM.mp4
