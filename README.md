@@ -20,7 +20,7 @@
    To use this app you must install [Node.js](https://nodejs.org/en/).  Once you have Node.js installed, then install Node Package Manager(npm).
 
 ```
- npm i npm
+ npm install -g npm
 
 ```
 

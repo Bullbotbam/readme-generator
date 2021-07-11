@@ -108,14 +108,12 @@ const writeFile = (response) => {
 };
 // TODO: Create a function to initialize app
 function init() {
-  console.log("works");
   inquirer
     .prompt(
       /* Pass your questions in here */
       questions
     )
     .then((generateMarkdown) => {
-      console.log("ths is happening");
       writeFile(generateMarkdown);
     })
     .catch((error) => {
